@@ -25,16 +25,18 @@ random.seed(seed_value)
 
 # ---- Random Assignment ----
 assignments = []
+for kid in kids:
+    place = random.choice(parks)
+    assignments.append({"Name": kid, "Assigned Place": place})
 
+    
 # Adults can go to both gardens and parks
 for adult in adults:
     place = random.choice(gardens + parks)
     assignments.append({"Name": adult, "Assigned Place": place})
 
 # Kids can only go to gardens
-for kid in kids:
-    place = random.choice(parks)
-    assignments.append({"Name": kid, "Assigned Place": place})
+
 
 # Convert to DataFrame
 df = pd.DataFrame(assignments)
